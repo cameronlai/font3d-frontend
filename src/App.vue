@@ -89,19 +89,10 @@ export default {
     generate: function() {
       axios
         .post("https://font3d-juuc7vo4na-de.a.run.app/generate", {
-          word: this.word.toUpperCase(),
-          responseType: "blob"
+          word: this.word.toUpperCase()
         })
         .then(function(response) {
           console.log(response);
-          var fileURL = window.URL.createObjectURL(new Blob([response.data]));
-          var fileLink = document.createElement("a");
-
-          fileLink.href = fileURL;
-          fileLink.setAttribute("download", "file.pdf");
-          document.body.appendChild(fileLink);
-
-          fileLink.click();
         })
         .catch(function(error) {
           console.log(error);
