@@ -93,7 +93,6 @@ export default {
           word: this.word
         })
         .then((response) => {
-          console.log(response);
           var fileURL = window.URL.createObjectURL(new Blob([response.data]));
           var fileLink = document.createElement("a");
 
