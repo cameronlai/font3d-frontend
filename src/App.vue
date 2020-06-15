@@ -87,12 +87,21 @@ export default {
   },
   methods: {
     generate: function() {
+      this.word = this.word.toUpperCase();
       axios
         .post("https://font3d-juuc7vo4na-de.a.run.app/generate", {
-          word: this.word.toUpperCase()
+          word: this.word
         })
-        .then(function(response) {
+        .then((response) => {
           console.log(response);
+          var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+          var fileLink = document.createElement("a");
+
+          fileLink.href = fileURL;
+          fileLink.setAttribute("download", `${this.word}.stl`);
+          document.body.appendChild(fileLink);
+
+          fileLink.click();
         })
         .catch(function(error) {
           console.log(error);
