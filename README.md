@@ -6,6 +6,7 @@ font3d is a web app built to generate 3D Text STL files. It utilizes OpenSCAD as
 ```
 npm install
 ```
+Note that node version is 16.
 
 ### Compiles and hot-reloads for development
 ```
